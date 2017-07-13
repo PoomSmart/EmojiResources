@@ -1,0 +1,9 @@
+Package: com.ps.emojiresources
+Name: EmojiResources
+Depends: mobilesubstrate, firmware (<< 9.1)
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Extra Emoji category icons.
+Maintainer: PoomSmart
+Author: PoomSmart
+Section: Tweaks
