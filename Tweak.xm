@@ -17,7 +17,7 @@ static void addDarkIcons(NSMutableArray *array) {
     [array addObject:@"emoji_flags_dark.png"];
 }
 
-// 6.0-8.2
+// 7.0-8.2
 static NSArray *modifiedIcons82() {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:18 + DARK_ICONS_COUNT];
     [array addObject:@"bold_emoji_recents.png"];
