@@ -3,11 +3,11 @@
 #import "../PS.h"
 #import <UIKit/UIImage+Private.h>
 
-static NSArray *modifiedIcons;
+static NSArray <NSString *> *modifiedIcons;
 
 // For EmojiDarkStyle
 #define DARK_ICONS_COUNT 7
-static void addDarkIcons(NSMutableArray *array) {
+static void addDarkIcons(NSMutableArray <NSString *> *array) {
     [array addObject:@"emoji_people_dark.png"];
     [array addObject:@"emoji_nature_dark.png"];
     [array addObject:@"emoji_food-and-drink_dark.png"];
@@ -18,8 +18,8 @@ static void addDarkIcons(NSMutableArray *array) {
 }
 
 // 7.0-8.2
-static NSArray *modifiedIcons82() {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:18 + DARK_ICONS_COUNT];
+static NSArray <NSString *> *modifiedIcons82() {
+    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:18 + DARK_ICONS_COUNT];
     [array addObject:@"bold_emoji_recents.png"];
     [array addObject:@"bold_emoji_people.png"];
     [array addObject:@"bold_emoji_nature.png"];
@@ -58,8 +58,8 @@ static NSArray *modifiedIcons83() {
 }
 
 // 9.0
-static NSArray *modifiedIcons90() {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:6 + DARK_ICONS_COUNT];
+static NSArray <NSString *> *modifiedIcons90() {
+    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:6 + DARK_ICONS_COUNT];
     [array addObject:@"bold_emoji_activity.png"];
     [array addObject:@"bold_emoji_nature.png"];
     [array addObject:@"bold_emoji_objects.png"];
