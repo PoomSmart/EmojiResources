@@ -5,21 +5,9 @@
 
 static NSArray <NSString *> *modifiedIcons;
 
-// For EmojiDarkStyle
-#define DARK_ICONS_COUNT 7
-static void addDarkIcons(NSMutableArray <NSString *> *array) {
-    [array addObject:@"emoji_people_dark.png"];
-    [array addObject:@"emoji_nature_dark.png"];
-    [array addObject:@"emoji_food-and-drink_dark.png"];
-    [array addObject:@"emoji_activity_dark.png"];
-    [array addObject:@"emoji_travel-and-places_dark.png"];
-    [array addObject:@"emoji_objects_dark.png"];
-    [array addObject:@"emoji_flags_dark.png"];
-}
-
 // 7.0-8.2
 static NSArray <NSString *> *modifiedIcons82() {
-    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:18 + DARK_ICONS_COUNT];
+    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:18];
     [array addObject:@"bold_emoji_recents.png"];
     [array addObject:@"bold_emoji_people.png"];
     [array addObject:@"bold_emoji_nature.png"];
@@ -38,13 +26,12 @@ static NSArray <NSString *> *modifiedIcons82() {
     [array addObject:@"emoji_objects.png"];
     [array addObject:@"emoji_objects-and-symbols.png"];
     [array addObject:@"emoji_flags.png"];
-    addDarkIcons(array);
     return array;
 }
 
 // 8.3-8.4
 static NSArray *modifiedIcons83() {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:8 + DARK_ICONS_COUNT];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:8];
     [array addObject:@"bold_emoji_activity.png"];
     [array addObject:@"bold_emoji_nature.png"];
     [array addObject:@"bold_emoji_flags.png"];
@@ -53,20 +40,18 @@ static NSArray *modifiedIcons83() {
     [array addObject:@"emoji_nature.png"];
     [array addObject:@"emoji_flags.png"];
     [array addObject:@"emoji_objects.png"];
-    addDarkIcons(array);
     return array;
 }
 
 // 9.0
 static NSArray <NSString *> *modifiedIcons90() {
-    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:6 + DARK_ICONS_COUNT];
+    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:6];
     [array addObject:@"bold_emoji_activity.png"];
     [array addObject:@"bold_emoji_nature.png"];
     [array addObject:@"bold_emoji_objects.png"];
     [array addObject:@"emoji_activity.png"];
     [array addObject:@"emoji_nature.png"];
     [array addObject:@"emoji_objects.png"];
-    addDarkIcons(array);
     return array;
 }
 
@@ -82,34 +67,34 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 %hook UIKeyboardEmojiGraphics
 
 + (NSString *)emojiCategoryImagePath: (UIKeyboardEmojiCategory *)category {
-    NSInteger type = category.categoryType;
+    PSEmojiCategory categoryType = category.categoryType;
     NSString *name = nil;
-    switch (type) {
-        case 0:
+    switch (categoryType) {
+        case IDXPSEmojiCategoryRecent:
             name = @"emoji_recents.png";
             break;
-        case 1:
+        case IDXPSEmojiCategoryPeople:
             name = @"emoji_people.png";
             break;
-        case 2:
+        case IDXPSEmojiCategoryNature:
             name = @"emoji_nature.png";
             break;
-        case 3:
+        case IDXPSEmojiCategoryFoodAndDrink:
             name = @"emoji_food-and-drink.png";
             break;
-        case 4:
+        case IDXPSEmojiCategoryActivity:
             name = @"emoji_activity.png";
             break;
-        case 5:
+        case IDXPSEmojiCategoryTravelAndPlaces:
             name = @"emoji_travel-and-places.png";
             break;
-        case 6:
+        case IDXPSEmojiCategoryObjects:
             name = @"emoji_objects.png";
             break;
-        case 7:
+        case IDXPSEmojiCategorySymbols:
             name = @"emoji_objects-and-symbols.png";
             break;
-        case 8:
+        case IDXPSEmojiCategoryFlags:
             name = @"emoji_flags.png";
             break;
     }
