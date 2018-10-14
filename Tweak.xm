@@ -66,7 +66,7 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 
 %hook UIKeyboardEmojiGraphics
 
-+ (NSString *)emojiCategoryImagePath: (UIKeyboardEmojiCategory *)category {
++ (NSString *)emojiCategoryImagePath:(UIKeyboardEmojiCategory *)category {
     PSEmojiCategory categoryType = category.categoryType;
     NSString *name = nil;
     switch (categoryType) {
