@@ -12,11 +12,12 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = EmojiResources
 EmojiResources_FILES = Tweak.xm
 EmojiResources_USE_SUBSTRATE = 1
+EmojiResources_EXTRA_FRAMEWORKS = CydiaSubstrate
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-all::
 ifeq ($(SIMULATOR),1)
+setup:: all
 	@rm -f /opt/simject/$(TWEAK_NAME).dylib
 	@cp -v $(THEOS_OBJ_DIR)/$(TWEAK_NAME).dylib /opt/simject
 	@cp -v $(PWD)/$(TWEAK_NAME).plist /opt/simject

@@ -3,6 +3,8 @@
 #import "../PS.h"
 #import <UIKit/UIImage+Private.h>
 
+%config(generator=MobileSubstrate)
+
 static NSArray <NSString *> *modifiedIcons;
 
 // 7.0-8.2
@@ -106,7 +108,7 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 %end
 
 %ctor {
-    if (isTarget(TargetTypeGUINoExtension)) {
+    if (isTarget(TargetTypeApps)) {
         if (isiOS9Up)
             modifiedIcons = [modifiedIcons90() retain];
         else if (isiOS83Up)
@@ -118,4 +120,9 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
         }
         %init;
     }
+}
+
+%dtor {
+    if (modifiedIcons)
+        [modifiedIcons autorelease];
 }
