@@ -1,4 +1,3 @@
-#define CHECK_TARGET
 #import "../EmojiLibrary/Header.h"
 #import "../PS.h"
 #import <UIKit/UIImage+Private.h>
@@ -9,7 +8,7 @@ static NSArray <NSString *> *modifiedIcons;
 
 // 7.0-8.2
 static NSArray <NSString *> *modifiedIcons82() {
-    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:18];
+    NSMutableArray <NSString *> *array = [NSMutableArray array];
     [array addObject:@"bold_emoji_recents.png"];
     [array addObject:@"bold_emoji_people.png"];
     [array addObject:@"bold_emoji_nature.png"];
@@ -33,7 +32,7 @@ static NSArray <NSString *> *modifiedIcons82() {
 
 // 8.3-8.4
 static NSArray *modifiedIcons83() {
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:8];
+    NSMutableArray *array = [NSMutableArray array];
     [array addObject:@"bold_emoji_activity.png"];
     [array addObject:@"bold_emoji_nature.png"];
     [array addObject:@"bold_emoji_flags.png"];
@@ -47,7 +46,7 @@ static NSArray *modifiedIcons83() {
 
 // 9.0
 static NSArray <NSString *> *modifiedIcons90() {
-    NSMutableArray <NSString *> *array = [NSMutableArray arrayWithCapacity:6];
+    NSMutableArray <NSString *> *array = [NSMutableArray array];
     [array addObject:@"bold_emoji_activity.png"];
     [array addObject:@"bold_emoji_nature.png"];
     [array addObject:@"bold_emoji_objects.png"];
@@ -108,18 +107,16 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 %end
 
 %ctor {
-    if (isTarget(TargetTypeApps)) {
-        if (isiOS9Up)
-            modifiedIcons = [modifiedIcons90() retain];
-        else if (isiOS83Up)
-            modifiedIcons = [modifiedIcons83() retain];
-        else
-            modifiedIcons = [modifiedIcons82() retain];
-        if (isiOS83Up) {
-            %init(iOS83Up);
-        }
-        %init;
+    if (isiOS9Up)
+        modifiedIcons = [modifiedIcons90() retain];
+    else if (isiOS83Up)
+        modifiedIcons = [modifiedIcons83() retain];
+    else
+        modifiedIcons = [modifiedIcons82() retain];
+    if (isiOS83Up) {
+        %init(iOS83Up);
     }
+    %init;
 }
 
 %dtor {

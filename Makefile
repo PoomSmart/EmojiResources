@@ -1,24 +1,26 @@
-PACKAGE_VERSION = 1.0.9
+PACKAGE_VERSION = 1.1
 
 ifeq ($(SIMULATOR),1)
 	TARGET = simulator:clang:latest:8.0
 	ARCHS = x86_64 i386
 else
-	TARGET = iphone:clang:latest:5.0
+	TARGET = iphone:clang:latest:7.0
+	ARCHS = armv7 arm64
 endif
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = EmojiResources
+LIBRARY_NAME = EmojiResources
 EmojiResources_FILES = Tweak.xm
-EmojiResources_USE_SUBSTRATE = 1
+EmojiResources_INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries/EmojiPort
 EmojiResources_EXTRA_FRAMEWORKS = CydiaSubstrate
+EmojiResources_USE_SUBSTRATE = 1
 
-include $(THEOS_MAKE_PATH)/tweak.mk
+include $(THEOS_MAKE_PATH)/library.mk
 
 ifeq ($(SIMULATOR),1)
 setup:: all
-	@rm -f /opt/simject/$(TWEAK_NAME).dylib
-	@cp -v $(THEOS_OBJ_DIR)/$(TWEAK_NAME).dylib /opt/simject
-	@cp -v $(PWD)/$(TWEAK_NAME).plist /opt/simject
+	@rm -f /opt/simject/$(LIBRARY_NAME).dylib
+	@cp -v $(THEOS_OBJ_DIR)/$(LIBRARY_NAME).dylib /opt/simject
+	@cp -v $(PWD)/$(LIBRARY_NAME).plist /opt/simject
 endif
