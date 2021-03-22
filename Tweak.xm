@@ -107,13 +107,13 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 %end
 
 %ctor {
-    if (isiOS9Up)
+    if (IS_IOS_OR_NEWER(iOS_9_0))
         modifiedIcons = [modifiedIcons90() retain];
-    else if (isiOS83Up)
+    else if (IS_IOS_OR_NEWER(iOS_8_3))
         modifiedIcons = [modifiedIcons83() retain];
     else
         modifiedIcons = [modifiedIcons82() retain];
-    if (isiOS83Up) {
+    if (IS_IOS_OR_NEWER(iOS_8_3)) {
         %init(iOS83Up);
     }
     %init;
