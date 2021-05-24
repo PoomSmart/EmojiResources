@@ -1,6 +1,6 @@
 #import "../EmojiLibrary/Header.h"
-#import "../PS.h"
 #import <UIKit/UIImage+Private.h>
+#import <version.h>
 
 %config(generator=MobileSubstrate)
 
