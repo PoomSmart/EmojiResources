@@ -2,8 +2,6 @@
 #import <UIKit/UIImage+Private.h>
 #import <version.h>
 
-%config(generator=MobileSubstrate)
-
 static NSArray <NSString *> *modifiedIcons;
 
 // 7.0-8.2
@@ -56,7 +54,7 @@ static NSArray <NSString *> *modifiedIcons90() {
     return array;
 }
 
-extern "C" UIImage *_UIImageWithName(NSString *name);
+extern UIImage *_UIImageWithName(NSString *name);
 %hookf(UIImage *, _UIImageWithName, NSString *name) {
     if (name && ([name hasPrefix:@"emoji_"] || [name hasPrefix:@"bold_emoji_"]) && [modifiedIcons containsObject:name])
         return [UIImage imageNamed:name inBundle:[NSBundle bundleForClass:[UIApplication class]]];
@@ -70,7 +68,10 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 + (NSString *)emojiCategoryImagePath:(UIKeyboardEmojiCategory *)category {
     PSEmojiCategory categoryType = category.categoryType;
     NSString *name = nil;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch"
     switch (categoryType) {
+#pragma clang diagnostic pop
         case IDXPSEmojiCategoryRecent:
             name = @"emoji_recents.png";
             break;
@@ -108,18 +109,13 @@ extern "C" UIImage *_UIImageWithName(NSString *name);
 
 %ctor {
     if (IS_IOS_OR_NEWER(iOS_9_0))
-        modifiedIcons = [modifiedIcons90() retain];
+        modifiedIcons = modifiedIcons90();
     else if (IS_IOS_OR_NEWER(iOS_8_3))
-        modifiedIcons = [modifiedIcons83() retain];
+        modifiedIcons = modifiedIcons83();
     else
-        modifiedIcons = [modifiedIcons82() retain];
+        modifiedIcons = modifiedIcons82();
     if (IS_IOS_OR_NEWER(iOS_8_3)) {
         %init(iOS83Up);
     }
     %init;
-}
-
-%dtor {
-    if (modifiedIcons)
-        [modifiedIcons autorelease];
 }

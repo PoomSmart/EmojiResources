@@ -1,4 +1,4 @@
-PACKAGE_VERSION = 1.2.1
+PACKAGE_VERSION = 1.2.2
 
 ifeq ($(SIMULATOR),1)
 	TARGET = simulator:clang:latest:8.0
@@ -11,10 +11,11 @@ endif
 include $(THEOS)/makefiles/common.mk
 
 LIBRARY_NAME = EmojiResources
-EmojiResources_FILES = Tweak.xm
-EmojiResources_INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries/EmojiPort
-EmojiResources_EXTRA_FRAMEWORKS = CydiaSubstrate
-EmojiResources_USE_SUBSTRATE = 1
+$(LIBRARY_NAME)_FILES = Tweak.x
+$(LIBRARY_NAME)_CFLAGS = -fobjc-arc
+$(LIBRARY_NAME)_INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries/EmojiPort
+$(LIBRARY_NAME)_EXTRA_FRAMEWORKS = CydiaSubstrate
+$(LIBRARY_NAME)_USE_SUBSTRATE = 1
 
 include $(THEOS_MAKE_PATH)/library.mk
 
