@@ -1,4 +1,4 @@
-#import "../EmojiLibrary/Header.h"
+#import <EmojiLibrary/Header.h>
 #import <UIKit/UIImage+Private.h>
 #import <version.h>
 
