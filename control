@@ -1,7 +1,7 @@
 Package: com.ps.emojiresources
 Name: EmojiResources
 Depends: firmware (>= 7.0), firmware (<< 9.1), mobilesubstrate
-Version: 1.0.0
+Version: 1.2.3
 Architecture: iphoneos-arm
 Description: Latest emoji category icons.
 Maintainer: PoomSmart

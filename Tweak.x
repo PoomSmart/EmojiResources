@@ -8,23 +8,41 @@ static NSArray <NSString *> *modifiedIcons;
 static NSArray <NSString *> *modifiedIcons82() {
     NSMutableArray <NSString *> *array = [NSMutableArray array];
     [array addObject:@"bold_emoji_recents.png"];
+    [array addObject:@"bold_emoji_recents_split.png"];
     [array addObject:@"bold_emoji_people.png"];
+    [array addObject:@"bold_emoji_people_split.png"];
     [array addObject:@"bold_emoji_nature.png"];
+    [array addObject:@"bold_emoji_nature_split.png"];
     [array addObject:@"bold_emoji_food-and-drink.png"];
+    [array addObject:@"bold_emoji_food-and-drink_split.png"];
     [array addObject:@"bold_emoji_activity.png"];
+    [array addObject:@"bold_emoji_activity_split.png"];
     [array addObject:@"bold_emoji_travel-and-places.png"];
+    [array addObject:@"bold_emoji_travel-and-places_split.png"];
     [array addObject:@"bold_emoji_objects.png"];
+    [array addObject:@"bold_emoji_objects_split.png"];
     [array addObject:@"bold_emoji_objects-and-symbols.png"];
+    [array addObject:@"bold_emoji_objects-and-symbols_split.png"];
     [array addObject:@"bold_emoji_flags.png"];
+    [array addObject:@"bold_emoji_flags_split.png"];
     [array addObject:@"emoji_recents.png"];
+    [array addObject:@"emoji_recents_split.png"];
     [array addObject:@"emoji_people.png"];
+    [array addObject:@"emoji_people_split.png"];
     [array addObject:@"emoji_nature.png"];
+    [array addObject:@"emoji_nature_split.png"];
     [array addObject:@"emoji_food-and-drink.png"];
+    [array addObject:@"emoji_food-and-drink_split.png"];
     [array addObject:@"emoji_activity.png"];
+    [array addObject:@"emoji_activity_split.png"];
     [array addObject:@"emoji_travel-and-places.png"];
+    [array addObject:@"emoji_travel-and-places_split.png"];
     [array addObject:@"emoji_objects.png"];
+    [array addObject:@"emoji_objects_split.png"];
     [array addObject:@"emoji_objects-and-symbols.png"];
+    [array addObject:@"emoji_objects-and-symbols_split.png"];
     [array addObject:@"emoji_flags.png"];
+    [array addObject:@"emoji_flags_split.png"];
     return array;
 }
 
@@ -32,13 +50,21 @@ static NSArray <NSString *> *modifiedIcons82() {
 static NSArray *modifiedIcons83() {
     NSMutableArray *array = [NSMutableArray array];
     [array addObject:@"bold_emoji_activity.png"];
+    [array addObject:@"bold_emoji_activity_split.png"];
     [array addObject:@"bold_emoji_nature.png"];
+    [array addObject:@"bold_emoji_nature_split.png"];
     [array addObject:@"bold_emoji_flags.png"];
+    [array addObject:@"bold_emoji_flags_split.png"];
     [array addObject:@"bold_emoji_objects.png"];
+    [array addObject:@"bold_emoji_objects_split.png"];
     [array addObject:@"emoji_activity.png"];
+    [array addObject:@"emoji_activity_split.png"];
     [array addObject:@"emoji_nature.png"];
+    [array addObject:@"emoji_nature_split.png"];
     [array addObject:@"emoji_flags.png"];
+    [array addObject:@"emoji_flags_split.png"];
     [array addObject:@"emoji_objects.png"];
+    [array addObject:@"emoji_objects_split.png"];
     return array;
 }
 
@@ -46,11 +72,17 @@ static NSArray *modifiedIcons83() {
 static NSArray <NSString *> *modifiedIcons90() {
     NSMutableArray <NSString *> *array = [NSMutableArray array];
     [array addObject:@"bold_emoji_activity.png"];
+    [array addObject:@"bold_emoji_activity_split.png"];
     [array addObject:@"bold_emoji_nature.png"];
+    [array addObject:@"bold_emoji_nature_split.png"];
     [array addObject:@"bold_emoji_objects.png"];
+    [array addObject:@"bold_emoji_objects_split.png"];
     [array addObject:@"emoji_activity.png"];
+    [array addObject:@"emoji_activity_split.png"];
     [array addObject:@"emoji_nature.png"];
+    [array addObject:@"emoji_nature_split.png"];
     [array addObject:@"emoji_objects.png"];
+    [array addObject:@"emoji_objects_split.png"];
     return array;
 }
 
