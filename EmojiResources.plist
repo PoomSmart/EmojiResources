@@ -8,10 +8,14 @@
 		<array>
 			<string>com.apple.UIKit</string>
 		</array>
+		<key>Executables</key>
+		<array>
+			<string>kbd</string>
+		</array>
 		<key>CoreFoundationVersion</key>
 		<array>
 			<real>847.20</real>
-			<real>1241.0</real>
+			<real>3299.0</real>
 		</array>
 	</dict>
 </dict>
